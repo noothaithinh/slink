@@ -1,0 +1,13 @@
+<% if flash[:msg]%>
+	<h3 style="color: red"> <%=flash[:msg]%></h3>
+<% end %>
+
+<%= form_tag("/", method: "post") do %>
+  <%= label_tag(:url, "URL:") %>
+  <%= text_field_tag(:url) %>
+  <%= submit_tag("Get short link") %>
+<% end %>
+<% if @new_url %>
+	<div>New URL:</div>
+	<a href="<%= @new_url %>"><%= @new_url %></a>
+<% end %>
